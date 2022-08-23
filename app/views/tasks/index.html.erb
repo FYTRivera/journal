@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<div id="tasks">
+  <% @tasks.each do |task| %>
+    <%= render task %>
+      <td><%= link_to 'Show Category', [@category] %></td>
+      <%= link_to "Show this task", [@category, task] %> |
+      <td><%= link_to 'Edit Task', edit_category_task_path(@category, task) %></td>
+      <td><%= button_to 'Destroy Task', [@category, task], method: :delete %></td>
+      
+    <p>
+      <%# <%= link_to "Show this task", task %> %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'New Task', new_category_task_path(@category) %>
