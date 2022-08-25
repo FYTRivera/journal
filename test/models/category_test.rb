@@ -41,16 +41,13 @@ class CategoryTest < ActiveSupport::TestCase
   test "should be able to reject a category with description greater than 100 chars" do
     category = Category.new
     category.name = "Category"
-    category.description = "1234567890
-                            1234567890
-                            1234567890
-                            1234567890
-                            1234567890
-                            1234567890
-                            1234567890
-                            1234567890
-                            1234567890
-                            12345678901"
+    category.description = "12345678901234567890123456789012345678901234567890
+                            123456789012345678901234567890123456789012345678901"
     assert_not category.save, "Saved a category with description longer than 100 chars."
+  end
+
+  test "should show only tasks of current day"
+    category = Category.new
+    
   end
 end

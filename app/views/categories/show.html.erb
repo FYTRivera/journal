@@ -4,8 +4,9 @@
 
  <% @category.tasks.each do |task|%>
    <ul>
-      <li><%= task.id%></li>
-      <li><%= task.body%></li>
+      <li><strong>Body: </strong><%= task.body%></li>
+      <p><strong>ID: </strong><%= task.id%></p>
+      <p><strong>Due Date: </strong><%= task.due_date%></p>
     </ul>
   <%end%>
 
