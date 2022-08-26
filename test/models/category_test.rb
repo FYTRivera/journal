@@ -46,8 +46,4 @@ class CategoryTest < ActiveSupport::TestCase
     assert_not category.save, "Saved a category with description longer than 100 chars."
   end
 
-  test "should show only tasks of current day"
-    category = Category.new
-    
-  end
 end

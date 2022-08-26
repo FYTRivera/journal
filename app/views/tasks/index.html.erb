@@ -16,4 +16,5 @@
 </div>
 
 <%= link_to 'Show Category', [@category] %> | 
-<%= link_to 'New Task', new_category_task_path(@category) %>
+<%= link_to 'New Task', new_category_task_path(@category) %> | 
+<%= link_to "Show Today's Tasks", category_tasks_today_path(@category) %>

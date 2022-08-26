@@ -42,4 +42,13 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to category_tasks_path(@task.category)
   end
+
+  test "should only be able to view today's tasks" do
+    get category_tasks_today_path(@task.category)
+    assert_select "ul" do
+      assert_select "li", 2
+    end
+
+  end
+
 end

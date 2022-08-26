@@ -3,6 +3,10 @@ require "test_helper"
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @category = categories(:one)
+
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
   end
 
   test "should get index" do
@@ -79,4 +83,6 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to categories_url
   end
+
+  
 end

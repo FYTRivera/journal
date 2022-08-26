@@ -2,8 +2,15 @@
 
 one:
   body: MyText
+  due_date: <%= Date.today.strftime("%Y-%m-%d") %>
   category: one
 
 two:
   body: MyText
-  category: two
+  due_date: <%= Date.today.strftime("%Y-%m-%d") %>
+  category: one
+
+three:
+  body: MyText
+  due_date: 2022-08-10
+  category: one

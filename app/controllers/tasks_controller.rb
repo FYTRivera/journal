@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :get_category
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :get_task, only: %i[ show edit update destroy ]
 
   # GET /tasks or /tasks.json
   def index
@@ -58,13 +58,17 @@ class TasksController < ApplicationController
     end
   end
 
+  def today
+    @tasks = @category.tasks.where(due_date: Date.current)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def get_category
       @category = Category.find(params[:category_id])
     end
     
-    def set_task
+    def get_task
       @task = @category.tasks.find(params[:id])
     end
 

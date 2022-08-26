@@ -1,0 +1,10 @@
+<% @tasks.each do |task| %>
+    <ul>
+        <li>
+            <p>Category: <%= task.category.name %></p>
+            <p>ID: <%= task.id %></p>
+            <p>Body: <%= task.body %></p>
+            <p>Due: <%= task.due_date %></p>
+        </li>
+    </ul>
+<%end%>
