@@ -1,5 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
+<%= button_to "Sign Out", destroy_user_session_path, :method => :delete %>
 <%= link_to "Tasks for the Day", categories_today_path%>
 
 <div id="tasks_for_the_day">
