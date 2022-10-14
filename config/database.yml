@@ -43,4 +43,4 @@ test:
 
 production:
   <<: *default
-  database: journal-app_prod
+  database: postgres
