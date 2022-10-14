@@ -1,15 +1,21 @@
-<div id="tasks_for_the_day">
-  <% @categories.each do |category| %>
-    <% category.tasks.each do |task| %>
-      <%if task.due_date == Date.current %>
-        <strong>Category Name:
-          <%= category.name%>
-        </strong>
-        <ul>
-          <li><%= task.body %> | <%= task.due_date %></li>
-        </ul>
-      <%else%>
+<%= render "layouts/header"%>
+<div class="wrapper">
+  <div id="tasks_for_the_day" class="card">
+    <% @categories.each do |category| %>
+      <% category.tasks.each do |task| %>
+      
+        <%if task.due_date == Date.current %>
+          <strong>Category Name:
+            <%= category.name%>
+          </strong>
+          <ul>
+            <li><%= task.body %> | <%= task.due_date %></li>
+          </ul>
+        <%else%>
+        <%end%>
+      
       <%end%>
-    <%end%>
-  <% end %>
+      
+    <% end %>
+  </div>
 </div>

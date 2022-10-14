@@ -1,20 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<%= render "layouts/header"%>
 
-<h1>Tasks</h1>
+<div class="content wrapper">
+  <div class="card show">
+    <p style="color: green"><%= notice %></p>
 
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-    <p><strong>Due Date:</strong> 
-    <%= task.due_date %>
-    </p>
-      <td><%= link_to "Show this task", [@category, task] %> |</td>
-      <td><%= link_to 'Edit Task', edit_category_task_path(@category, task) %></td>
-      <td><%= button_to 'Destroy Task', [@category, task], method: :delete %></td>
+    <h1 >Tasks</h1>
 
-  <% end %>
+    <div id="tasks">
+      <% @tasks.each do |task| %>
+        <br />
+        <%= render task %>
+        <p><strong>Due Date:</strong> 
+        <%= task.due_date %>
+        </p>
+          <td><%= link_to "Show this task", [@category, task] %> |</td>
+          <td><%= link_to 'Edit Task', edit_category_task_path(@category, task) %></td>
+          <td><%= button_to 'Destroy Task', [@category, task], method: :delete %></td>
+
+      <% end %>
+    </div>
+    <br />
+    <%= link_to 'Show Category', [@category] %>
+    <%= link_to 'New Task', new_category_task_path(@category) %>
+    <%= link_to "Show Today's Tasks", category_tasks_today_path(@category) %>
+  </div>
 </div>
-
-<%= link_to 'Show Category', [@category] %> | 
-<%= link_to 'New Task', new_category_task_path(@category) %> | 
-<%= link_to "Show Today's Tasks", category_tasks_today_path(@category) %>

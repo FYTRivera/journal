@@ -1,20 +1,24 @@
+<%= render "layouts/header"%>
+<div class="wrapper">  
+  <div class="card show">
+    <%= render @category %>
 
-<%= render @category %>
+    <% @category.tasks.each do |task|%>
+      <ul>
+          <li><strong>Body: </strong><%= task.body%></li>
+          <p><strong>ID: </strong><%= task.id%></p>
+          <p><strong>Due Date: </strong><%= task.due_date%></p>
+        </ul>
+      <%end%>
 
- <% @category.tasks.each do |task|%>
-   <ul>
-      <li><strong>Body: </strong><%= task.body%></li>
-      <p><strong>ID: </strong><%= task.id%></p>
-      <p><strong>Due Date: </strong><%= task.due_date%></p>
-    </ul>
-  <%end%>
-
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %> | 
-  <%= link_to "View tasks", category_tasks_path(@category) %> | 
-  <%= link_to "New tasks", new_category_task_path(@category) %>
+    <div>
+      <%= link_to "Edit this category", edit_category_path(@category) %> |
+      <%= link_to "Back to categories", categories_path %> | 
+      <%= link_to "View tasks", category_tasks_path(@category) %> | 
+      <%= link_to "New tasks", new_category_task_path(@category) %>
 
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
+      <%= button_to "Destroy this category", @category, method: :delete %>
+    </div>
+  </div>
 </div>

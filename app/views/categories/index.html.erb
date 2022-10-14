@@ -1,32 +1,41 @@
-<%= button_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<%= link_to "Tasks for the Day", categories_today_path%>
+<%= render "layouts/header"%>
+<div class="content wrapper category">
 
-<div id="tasks_for_the_day">
-  <% @categories.each do |category| %>
-    <% category.tasks.each do |task| %>
-      <%if task.due_date == Date.current %>
-        <strong>Category Name:
-          <%= category.name%>
-        </strong>
-        <ul>
-          <li><%= task.body %> | <%= task.due_date %></li>
-        </ul>
-      <%else%>
-      <%end%>
-    <%end%>
-  <% end %>
+  <div class="card">
+    <%= link_to "Tasks for the Day", categories_today_path%>
+
+    <div id="tasks_for_the_day">
+      <% @categories.each do |category| %>
+        <% category.tasks.each do |task| %>
+          <%if task.due_date == Date.current %>
+            <strong>Category Name:
+              <%= category.name%>
+            </strong>
+            <ul>
+              <li><%= task.body %> | <%= task.due_date %></li>
+            </ul>
+          <%else%>
+          <%end%>
+        <%end%>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card">
+    <h1>Categories</h1>
+
+    <%= link_to "New category", new_category_path, class:"button is-primary" %>
+
+    <div>
+      <% @categories.each do |category| %>
+        <%= render category %>
+        <p>
+          <%= link_to "Show this category", category %>
+        </p>
+      <br />
+      <% end %>
+    </div>
+
+    
+  </div>
 </div>
-
-
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New category", new_category_path %>

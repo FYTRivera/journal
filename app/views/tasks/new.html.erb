@@ -1,9 +1,14 @@
-<h1>New task</h1>
+<%= render "layouts/header"%>
+<div class="wrapper">
+  <div class="card"> 
+    <h1>New task</h1>
 
-<%= render "form", task: @task %>
+    <%= render "form", task: @task %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to tasks", category_tasks_path(@category) %>
+    <div>
+      <%= link_to "Back to tasks", category_tasks_path(@category) %>
+    </div>
+  </div>
 </div>

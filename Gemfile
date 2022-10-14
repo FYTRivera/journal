@@ -16,6 +16,10 @@ gem "pg"
 
 gem "devise"
 
+gem 'bulma-rails', '~> 0.9.3'
+
+gem 'sass-rails'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
